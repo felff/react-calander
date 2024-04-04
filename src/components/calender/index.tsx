@@ -1,15 +1,18 @@
 import { useCallback, useState } from "react";
 import "./calender.scss";
 import {
-  ChangeMonthEnum,
   getMonthFirstDay,
   getMonthLastDate,
   getMonthLastDay,
   THIS_MONTH,
   THIS_YEAR,
-  zeroPad,
 } from "./calender";
 import dayjs from "dayjs";
+
+enum ChangeMonthEnum {
+  NEXT,
+  PREVIOUS,
+}
 const Calender = () => {
   const [year, setYear] = useState(THIS_YEAR());
   const [month, setMonth] = useState(THIS_MONTH());
@@ -64,7 +67,7 @@ const Calender = () => {
         .fill(0)
         .map((_, i) => {
           const day = i + 1;
-          const date = dayjs(`${year}-${zeroPad(month, 2)}-${zeroPad(day, 2)}`);
+          const date = dayjs(`${year}-${month}-${day}`);
           const todayClass = date.isSame(dayjs(), "day")
             ? "calendar__day--today"
             : "";
