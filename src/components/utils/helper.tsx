@@ -1,5 +1,5 @@
 export const THIS_YEAR = () => +new Date().getFullYear();
-// 1 => January, 12 => December
+
 export const THIS_MONTH = () => +new Date().getMonth() + 1;
 
 export const getMonthFirstDay = (month = THIS_MONTH(), year = THIS_YEAR()) => {

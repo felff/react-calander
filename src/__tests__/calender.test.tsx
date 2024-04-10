@@ -5,17 +5,15 @@ import {
   getMonthFirstDay,
   getMonthLastDate,
   getMonthLastDay,
-} from "../calender";
-import Calender from "../index";
+} from "../components/utils/helper";
+import Calender from "../components/pages/calander";
 import "@testing-library/jest-dom/jest-globals";
 import "@testing-library/jest-dom";
 
 describe("Calendar Component", () => {
   test("renders with correct initial month and year", () => {
     const { getByText } = render(<Calender />);
-    const headerContent = getByText(
-      `${THIS_YEAR()}年${THIS_MONTH()}月`
-    );
+    const headerContent = getByText(`${THIS_YEAR()}年${THIS_MONTH()}月`);
     expect(headerContent).toBeInTheDocument();
   });
 
@@ -23,9 +21,7 @@ describe("Calendar Component", () => {
     const { getByText } = render(<Calender />);
     const nextButton = getByText("›");
     fireEvent.click(nextButton);
-    const headerContent = getByText(
-      `${THIS_YEAR()}年${THIS_MONTH()+1}月`
-    );
+    const headerContent = getByText(`${THIS_YEAR()}年${THIS_MONTH() + 1}月`);
     expect(headerContent).toBeInTheDocument();
   });
 
@@ -33,9 +29,7 @@ describe("Calendar Component", () => {
     const { getByText } = render(<Calender />);
     const previousButton = getByText("‹");
     fireEvent.click(previousButton);
-    const headerContent = getByText(
-      `${THIS_YEAR()}年${THIS_MONTH()-1}月`
-    );
+    const headerContent = getByText(`${THIS_YEAR()}年${THIS_MONTH() - 1}月`);
     expect(headerContent).toBeInTheDocument();
   });
 

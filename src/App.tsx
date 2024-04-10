@@ -1,9 +1,9 @@
-import Calender from "./components/calender";
-
+import "./components/common/style/globals.scss";
+import { Calander } from "./components/pages";
 function App() {
   return (
     <>
-      <Calender />
+      <Calander />
     </>
   );
 }
