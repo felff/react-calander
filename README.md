@@ -1,6 +1,6 @@
 ## 一、開發環境
 
-- node version: 18.17.1
+- node version: 20.12.2
 - npm version: 9.6.7
 
 - 語言使用 `Typescript` 撰寫

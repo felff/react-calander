@@ -13,7 +13,7 @@ export const Date = ({
   ativeDayClass,
   todayClass = "",
   isCurrentMonth = false,
-  onClick = () => {},
+  onClick,
 }: Props) => {
   const currentMonthClass = isCurrentMonth
     ? todayClass
@@ -21,9 +21,7 @@ export const Date = ({
   return (
     <div
       className={`calendar__day ${currentMonthClass}  ${ativeDayClass(date)}`}
-      onClick={() => {
-        onClick(date);
-      }}
+      {...(onClick && { onClick: () => onClick(date) })}
     >
       {`${day}日`}
     </div>
